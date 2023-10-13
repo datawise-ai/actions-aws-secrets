@@ -1,0 +1,32 @@
+name: 'AWS Secrets Manager GitHub Action'
+author: 'AWS Secrets Manager'
+description: 'GitHub action for retrieving secrets from AWS Secrets Manager'
+branding:
+  icon: 'cloud'
+  color: 'orange'
+inputs:
+  secret-ids:
+    description: 'One or more secret names, secret ARNs, or secret prefixes to retrieve'
+    required: true
+  parse-json-secrets:
+    description: '(Optional) If true, JSON secrets will be deserialized, creating a secret environment variable for each key-value pair.'
+    required: false
+    default: 'false'
+outputs:
+  time1: # id of output
+    description: 'The time we greeted you'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
+  post: 'dist/cleanup/index.js'
+
+
+
+
+
+# name: 'Hello World'
+# runs:
+#   using: 'docker'
+#   image: 'Dockerfile'
+#   args:
+#     - ${{ inputs.who-to-greet }}
